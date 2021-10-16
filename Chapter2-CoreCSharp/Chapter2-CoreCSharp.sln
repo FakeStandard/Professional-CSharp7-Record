@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArgumentsSample", "Argument
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NamespaceSample", "NamespaceSample\NamespaceSample.csproj", "{58FDC0B8-6C7B-4B91-A34F-1520B67E670D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingNumber", "UsingNumber\UsingNumber.csproj", "{240B5993-243B-4642-AC61-4FC24967D1C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{58FDC0B8-6C7B-4B91-A34F-1520B67E670D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58FDC0B8-6C7B-4B91-A34F-1520B67E670D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58FDC0B8-6C7B-4B91-A34F-1520B67E670D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{240B5993-243B-4642-AC61-4FC24967D1C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{240B5993-243B-4642-AC61-4FC24967D1C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{240B5993-243B-4642-AC61-4FC24967D1C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{240B5993-243B-4642-AC61-4FC24967D1C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
