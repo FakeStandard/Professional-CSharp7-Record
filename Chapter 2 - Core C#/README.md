@@ -56,3 +56,124 @@ int i;
 在 C# 關鍵字中，如 `int`、`short`、`string` 等，在 Compiler 時會 Mapping 到 .NET 的 DataType，例如宣告一個 `int` 變數時，其宣告實際上是 .NET `System.Int32` 的一個實例。
 
 [資料型別對應參考](https://docs.microsoft.com/zh-tw/dotnet/csharp/language-reference/builtin-types/built-in-types)
+
+## 程序流程控制
+分為條件語句、循環語句和跳轉語句
+
+條件語句有兩種 `if` 和 `switch`
+
+循環語句有四種 `for`、`while`、`do...while`、`foreach`
+
+跳轉語句有四種 `goto`、`break`、`continue`、`return`
+### if
+```CSharp
+if (condition)
+  statement
+else
+  statement
+```
+執行多語句需使用大括號包覆為一個區塊，也可以合併 `else if` 子句
+```CSharp
+if (condition)
+{
+  statements
+}
+else if (condition)
+{
+  statements
+}
+else
+{
+  statements
+}
+```
+### switch
+```CSharp
+switch (variable)
+{
+  case 1:
+    statements
+    break;
+  case 2:
+    statements
+    break;
+  case 3:
+    statements
+    break;
+  default:
+    statements
+    break;
+}
+```
+
+### for
+- initializer - 第一次循環前要計算的表達式，通常把一個局部變數初始化為計數器
+- condition - 每次循環新跌代前要測試的表達式，需等於 `true` 才能執行下一次跌代
+- iterator - 每次跌代完要計算的表達式
+```CSharp
+for (initializer; condition; iterator)
+{
+  statements
+}
+```
+例如下列輸出 0-10 的整數
+```CSharp
+for (int i = 0; i <= 10; i++)
+{
+  Console.WriteLine(i);
+}
+```
+
+### while
+```CSharp
+bool condition = true;
+while (condition)
+{
+  DoSomeWork();
+}
+```
+
+### do...while
+bool condition;
+```CSharp
+do
+{
+  statements
+} while (condition);
+```
+
+### foreach
+```CSharp
+foreach (int temp in array)
+{
+  Console.WriteLine(temp);
+}
+```
+
+### goto
+```CSharp
+goto Label1:
+Console.WriteLine("不會執行");
+Label1:
+  Console.WriteLine("跳轉到此處繼續執行");
+```
+
+### break
+在 `switch` 中使用 `break` 退出某個 `case` 語句，也可用於 `for`、`foreach`、`while` 和 `do...while` 循環之中，在循環中使用 `break` 即可退出循環
+
+### continue
+`continue` 一樣用在 `for`、`foreach`、`while` 和 `do...while` 循環中，與 `break` 不一樣的地方在於，`break` 是直接跳出循環，而 `continue` 則是退出循環的當前跌代，且繼續執行下一次的跌代，而非退出循環
+
+### return
+`return` 退出類別的方法，把控制權返回給方法的調用者
+
+## 預處理器指令
+- #define、#undef
+- #if、#elif、#else、#endif
+- #warning、#error
+- #region、#endregion
+- #line
+- #pragma
+
+## C# 關鍵字
+[C# Keywords](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/)
