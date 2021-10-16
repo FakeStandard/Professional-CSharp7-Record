@@ -1,9 +1,9 @@
 # Professional-CSharp7-Record
 章節目錄
 | Chapter | English Name| Chinese Name | Progress |
-| - | - | - | - |
+| - | - | - | :-: |
 | Ch 1 | .NET Applications and Tools (HelloWorld) | .NET 應用程式和工具 ||
-| Ch 2 | Core C# (CoreCsharp) | 核心 C# | ing |
+| Ch 2 | Core C# (CoreCsharp) | 核心 C# | :heavy_check_mark: |
 | Ch 3 | Objects and Types (ObjectsAndTypes) | 物件和類型 ||
 | Ch 4 | Object-Oriented Programming with C# (ObjectOrientation) | 繼承 ||
 | Ch 5 | Generics (Generics) | 泛型 ||
