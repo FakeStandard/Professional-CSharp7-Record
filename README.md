@@ -4,7 +4,7 @@
 | - | - | - | :-: |
 | Ch 1 | .NET Applications and Tools (HelloWorld) | .NET 應用程式和工具 ||
 | Ch 2 | Core C# (CoreCsharp) | 核心 C# | :heavy_check_mark: |
-| Ch 3 | Objects and Types (ObjectsAndTypes) | 物件和類型 ||
+| Ch 3 | Objects and Types (ObjectsAndTypes) | 物件和類型 | :pushpin: |
 | Ch 4 | Object-Oriented Programming with C# (ObjectOrientation) | 繼承 ||
 | Ch 5 | Generics (Generics) | 泛型 ||
 | Ch 6 | Operators and Casts (OperatorsAndCasts) | 運算符和類型強制轉換 ||
