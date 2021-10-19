@@ -248,4 +248,19 @@ pubilc void Display(params int[] data)
 }
 ```
 
+### Constructors（建構函式）
+
 ## struct（結構）
+
+## 按值和按址傳遞參數
+傳值和傳址（By Value & By Reference）
+
+## 可 Null 型別
+
+## enum（列舉）
+
+## partial（部分類別）
+
+## Extension Method（擴展方法）
+
+## Object
