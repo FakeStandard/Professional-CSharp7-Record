@@ -249,6 +249,98 @@ pubilc void Display(params int[] data)
 ```
 
 ### Constructors（建構函式）
+建構函式即宣告一個與類別同名的方法，該方法沒有返回類型。一般情況下，不需要為類別提供建構函式，Compiler 會自動生成一個基本的建構函式，也就是隱式提供一個空的建構函式
+```CSharp
+class Member
+{
+    // constructor
+    public Member()
+    {
+    }
+}
+```
+
+建構函式遵循與其他方法相同的規則，即可為建構函式提供方法多載，只需將方法簽章有明顯區別即可
+```CSharp
+class Member
+{
+    public Member()
+    {
+        // construction code
+    }
+    
+    // another overload
+    public Member(string name)
+    {
+        // consstruction code
+    }
+}
+```
+
+若提供帶有參數的建構函式，而未提供空的建構函式，則 Compiler 不會自動生成默認的建構函式（空建構子），意思是在沒有定義任何建構函式時，Compiler 才會自動生成基礎建構函式，例如下列範例將不會隱式地提供其他建構函式，如果使用無參數的建構函式實例化 Member 物件，則會得到一個編譯錯誤
+```CSharp
+class Member
+{
+    private string _name;
+    public Member(string name)
+    {
+        _name = name;
+    }
+}
+```
+
+建構函式與方法相同的規則，故也能通過表達式來實現
+```CSharp
+public class Member
+{
+    private string _name;
+    public Member(string name) => _name = name;
+}
+```
+
+從建構函式中調用其他建構函式，如下，在一個類別中有幾個建構函式，以容納某些可選參數，這些建構函式包含一些共同程式碼
+```CSharp
+class Car
+{
+    private string _name;
+    private uint _wheels;
+    
+    public Car(string name, uint wheels)
+    {
+        _name = name;
+        _wheels = wheels
+    }
+    
+    public Car(string name)
+    {
+        _name = name;
+        _wheels = 4;
+    }
+    
+    // other construction or code.
+}
+```
+
+上述例子而已，兩個建構函式初始化相同的欄位，故最好把相同的程式碼放在一個地方，C# 提供一個特殊語法為建構函式初始化器，可用以實現此目的，在帶有一個參數的建構函式執行之前，會先執行代有兩個參數的建構函式，此地方的 `this` 關鍵字僅調用參數最匹配的建構函式
+```CSharp
+class Car
+{
+    private string _name;
+    private uint _wheels;
+    
+    public Car(string name, uint wheels)
+    {
+        _name = name;
+        _wheels = wheels;
+    }
+    
+    public Car(string name): this(name, 4)
+    {
+    }
+    
+    // other construction or code.
+}
+```
 
 ## struct（結構）
 
