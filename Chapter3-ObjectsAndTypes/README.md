@@ -343,6 +343,44 @@ class Car
 ```
 
 ## struct（結構）
+結構與類別非常類似，不同之處為結構是 Value Type（實值類型）儲存於 stack 上，且不支援繼承，較小的資料類型使用結構可提高性能。例如提供一個可儲存每件家具的尺寸大小模型，因不需要很多方法和使用繼承，且內部只需儲存兩個 `double` 型別的資料，沒有過多複雜的邏輯處理，此案例就可使用 `struct` 代替 `class`，
+```CSharp
+public struct Dimensions
+{
+    public double Length { get; }
+    public double Width { get; }
+    
+    public Dimensions(double length, double width)
+    {
+        Length = length;
+        Width = width;
+    }
+    
+    // 添加表達式屬性
+    public double Diagonal => Math.Sqrt(Length * Length * Width * Width)
+}
+```
+
+結構在未提供建構函式時，Compiler 會自動生成一個基礎建構函式，與類別相同。
+
+結構雖是 Value Type，語法上也可使用與類別相同的 `new` 關鍵字，但 `new` 關鍵字的作用卻完全不相同，`new` 並不分配 stack 中的記憶體，而是根據傳送給它的參數，調用對應的建構函式，初始化所有欄位
+```CSharp
+// 合法寫法
+var point = new Dimensions();
+point.Length = 3;
+point.Width = 6;
+
+// 更合法的寫法
+Dimensions point;
+point.Length = 3;
+point.Width = 6;
+```
+
+在宣告結構時，實際上是在為整個結構在 stack 中分配記憶體空間，故不須使用 `new` 就可直接賦值。但下列程式碼會產生編譯錯誤，因為結構的變數尚未初始化
+```CSharp
+Dimensions point;
+double d = point.Length;
+```
 
 ## 按值和按址傳遞參數
 傳值和傳址（By Value & By Reference）
