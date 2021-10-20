@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutKeyword", "OutKeyword\Ou
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InParameter", "InParameter\InParameter.csproj", "{8F597411-A7FC-4FAD-AF1E-A426DA8F5F3F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumColor", "EnumColor\EnumColor.csproj", "{E3FAD7C4-5217-4BAF-8D37-AC9F32F22EA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{8F597411-A7FC-4FAD-AF1E-A426DA8F5F3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F597411-A7FC-4FAD-AF1E-A426DA8F5F3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F597411-A7FC-4FAD-AF1E-A426DA8F5F3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3FAD7C4-5217-4BAF-8D37-AC9F32F22EA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3FAD7C4-5217-4BAF-8D37-AC9F32F22EA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3FAD7C4-5217-4BAF-8D37-AC9F32F22EA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3FAD7C4-5217-4BAF-8D37-AC9F32F22EA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
