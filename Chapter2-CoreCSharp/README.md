@@ -50,7 +50,9 @@ int i;
 ## 資料型別定義
 在 C# 中資料型別依其定義可分為兩種，一種是實值型別（Value Type），一種是參考型別（Reference Type）。兩種型別的差異在於儲存方式，實質型別儲存於 Stack 中，而參考型別儲存於 Managed Heap 中，實質型別在記憶體中會直接儲存資料，參考型別則是儲存資料的參考位置，再透過參考位置找到資料。
 
-例如 `int` 是實質型別，`class` 則是參考型別
+例如 `int` 是實值型別，`class` 則是參考型別
+
+參考型別（Reference Type）會通過一種記憶體管理機制 - GC（Garbage Collection）進行記憶體空間清理，而實值型別（Value Type）不須通過 GC 進行清理，當變數超出作用域（scope）時，會直接從記憶體上刪除
 
 ## C# 和 .NET 的型別
 在 C# 關鍵字中，如 `int`、`short`、`string` 等，在 Compiler 時會 Mapping 到 .NET 的 DataType，例如宣告一個 `int` 變數時，其宣告實際上是 .NET `System.Int32` 的一個實例。
