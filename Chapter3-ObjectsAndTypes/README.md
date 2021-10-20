@@ -478,8 +478,53 @@ else
 `in` 修飾符保證在傳遞實值類型到方法中的資料不會被更改，若在方法中試圖更改其值，則 Compiler 會引發一個不可為唯讀變數成員重新分配值，使用 `in` 修飾符有個優點，與一般調用方法時複製實值類型不同，Compiler 可以直接引用，減少複製類型所需要用的記憶體空間，以提高性能
 
 ## 可 Null 型別
+Reference Type 的變數可為 Null，但 Value Type 的變數則不能為 Null，為此可使用 `?` 讓 Value Type 的變數可為 Null
+```CSharp
+// 直接分配值
+int x1 = 1;
+
+// 加上 ? 可分配 null 值
+int? x2 = null;
+
+// int 的值可以分配給 int?，故編譯成功
+int? x3 = x1;
+
+// 而 int? 則不能直接分配給 int，會無法編譯
+int x4 = x2;
+
+// 此時須透過類型轉換，此時編譯可以成功，但是當 x2 為 null 時，就會捕獲一個異常錯誤
+int x5 = (int)x2;
+
+// 故可使用 HasValue 和 Value 屬性決定變數使否有值
+// HasValue 會返回 true 或 false
+int x6 = x2.HasValue ? x2.Value : -1
+
+// 也可以使用 ?? 使語法更簡短
+int x7 = x2 ?? -1;
+```
 
 ## enum（列舉）
+列舉屬於實值型別，使用 `enum` 關鍵字定義，列舉可以宣告一組相同類型的常量變數，使用食用列舉的名稱作為前綴來設置一個命名常量變數，來賦予列舉中的一個值。列舉預設類型為 `int`，也可以改變為其他整數類型，而命名常量變數的預設值從 0 開始遞增，也可以自行改變其值
+```CSharp
+public enum Color
+{
+    Red,
+    Green,
+    Blue = 4
+}
+```
+
+`Enum.GetNames()` 返回所有列舉名稱
+```CSharp
+foreach(var item in Enum.GetNames(typeof(Color))
+    Console.WriteLine(item);
+```
+
+`Enum.GetValues()` 返回所有列舉值
+```CSharp
+foreach(short item in Enum.GetValues(typeof(Color))
+    Console.WriteLine(item);
+```
 
 ## partial（部分類別）
 
