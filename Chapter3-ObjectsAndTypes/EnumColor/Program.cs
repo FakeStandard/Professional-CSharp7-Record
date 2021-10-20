@@ -22,8 +22,8 @@ namespace EnumColor
             string redtext = Enum.GetName(typeof(Color), red);
             Console.WriteLine(redtext);
 
-            foreach (var day in Enum.GetNames(typeof(Color)))
-                Console.WriteLine(day);
+            foreach (var item in Enum.GetNames(typeof(Color)))
+                Console.WriteLine(item);
 
             foreach (short item in Enum.GetValues(typeof(Color)))
                 Console.WriteLine(item);
