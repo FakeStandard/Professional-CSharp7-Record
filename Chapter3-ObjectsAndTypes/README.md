@@ -385,6 +385,84 @@ double d = point.Length;
 ## 按值和按址傳遞參數
 傳值和傳址（By Value & By Reference）
 
+假定有兩個方法分別傳入一參數為類別和結構，並在方法內改變屬性值，在方法調用結束後其值會因傳入參數類型而有所不同
+```CSharp
+
+struct A
+{
+    public int X { get; set; }
+}
+
+class B
+{
+    public int X { get; set; }
+}
+
+// 傳入參數為 struct
+static void ChangeA(A a)
+{
+    a.X = 2;
+}
+
+// 傳入參數為 class
+static void ChangeB(B b)
+{
+    b.X = 2;
+}
+```
+
+在 `Main()` 方法中分別實例化 A 和 B 物件，並調用適當的 `Change` 方法，最後輸出 X 的值
+
+```CSharp
+static void Main()
+{
+    A a1 = new A { X = 1 };
+    ChangeA(a1);
+    Console.WriteLine(a1.X);
+
+    B b1 = new B { X = 1 };
+    ChangeB(b1);
+    Console.WriteLine(b1.X);
+}
+```
+
+以上述例子來看，若是傳入參數為結構，則輸出為 1，若是類別則輸出為 2。因為結構屬於按值傳遞，故在傳遞參數給 `Change` 方法時，會在記憶體中複製 `a1` 結構成為 `a`，將副本 `a` 傳遞給方法使用，當方法結束調用時，會將其銷毀，故在 `Main()` 方法輸出 `a1.X` 的屬性值時依然是原本的結構，屬性值也依然是 1；而類別是屬於按址傳遞，調用 `Change` 方法時會直接將類別 `b1` 的記憶體位址提供給 `Change` 方法參數使用，即 `b` 參數的位址等同於 `b1` 位址，故在方法內改變其屬性值 X 為 2 時，該位址所儲存的值也等同於被修改，因此 `Main()` 方法輸出 X 屬性值就會是 2。
+
+### ref
+假設傳遞的參數為 Value Type，但想使用按址傳遞的方式，就可使用 `ref` 修飾符達到目的，例如原先按值傳遞的結構欲改用按址傳遞方式進行，在方法參數前添加 `ref` 修飾符，並且在調用方法時為傳遞的參數也添加 `ref` 修飾詞，最後輸出結果就上述類別的輸出相同即屬性值 X 為 2。
+
+```CSharp
+static void Main()
+{
+    A a1 = new A { X = 1 };
+    ChangeA(ref a1);
+    Console.WriteLine(a1.X);
+}
+
+static void ChangeA(ref A a)
+{
+    a.X = 2;
+}
+```
+
+類別使用 `ref` 修飾詞一般用法看不出差異，但若在方法內為參數重新分配一個物件，則會有所不同，例如下方程式碼最終輸出的屬性 X 值為 2，因為 `Main()` 方法的 `b1` 仍然引用屬性值為 2 的舊物件，新物件只存在於 `Change` 方法中的 `b`，故方法調用結束後也會將其銷毀
+```CSharp
+static void ChangeB(B b)
+{
+    b.X = 2;
+    b = new B { X = 3 };
+}
+```
+
+若相同方法添加 `ref` 修飾詞則結果會不同，方法內建立新物件 B 並指給 `b`，此時 `b` 會等同於 `b1` 物件，故輸出為 3
+```CSharp
+static void ChangeB(ref B b)
+{
+    b.X = 2;
+    b = new B { X = 3 };
+}
+```
+
 ## 可 Null 型別
 
 ## enum（列舉）
