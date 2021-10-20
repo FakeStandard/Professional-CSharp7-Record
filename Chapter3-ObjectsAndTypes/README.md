@@ -463,6 +463,20 @@ static void ChangeB(ref B b)
 }
 ```
 
+### out
+使用 `TryParse` 處理類型錯誤的資料，當解析類型成功或失敗都會返回一個 `bool` 類型，做進一步的處理
+```CSharp
+string input = Console.ReadLine();
+
+if(int.TryParse(input, out int result))
+    Console.WriteLine(input);
+else
+    Console.WriteLine("not a number");
+```
+
+### in
+`in` 修飾符保證在傳遞實值類型到方法中的資料不會被更改，若在方法中試圖更改其值，則 Compiler 會引發一個不可為唯讀變數成員重新分配值，使用 `in` 修飾符有個優點，與一般調用方法時複製實值類型不同，Compiler 可以直接引用，減少複製類型所需要用的記憶體空間，以提高性能
+
 ## 可 Null 型別
 
 ## enum（列舉）
