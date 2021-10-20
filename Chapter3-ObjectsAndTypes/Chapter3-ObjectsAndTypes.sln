@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructsSample", "StructsSam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadonlyStruct", "ReadonlyStruct\ReadonlyStruct.csproj", "{D2088037-2CBF-408D-B3FC-03E1A61BE72A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassingByValueAndReference", "PassingByValueAndReference\PassingByValueAndReference.csproj", "{7D8643B8-FD8D-41BB-9E8A-E8C7721314DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D2088037-2CBF-408D-B3FC-03E1A61BE72A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2088037-2CBF-408D-B3FC-03E1A61BE72A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2088037-2CBF-408D-B3FC-03E1A61BE72A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D8643B8-FD8D-41BB-9E8A-E8C7721314DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D8643B8-FD8D-41BB-9E8A-E8C7721314DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D8643B8-FD8D-41BB-9E8A-E8C7721314DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D8643B8-FD8D-41BB-9E8A-E8C7721314DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
