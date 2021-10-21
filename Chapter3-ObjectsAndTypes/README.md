@@ -526,8 +526,23 @@ foreach(short item in Enum.GetValues(typeof(Color))
     Console.WriteLine(item);
 ```
 
-## partial（部分類別）
-
 ## Extension Method（擴展方法）
+擴展方法就是給物件添加功能，在不能使用繼承時也可使用這個選項。擴展方法是靜態方法，也是類別的一部分，但實際上沒有放在類別的程式碼中。例如為 `string` 類型添加一擴展方法，計算字串中的單字數量，則使用 `this` 關鍵字和第一個參數來定義要擴展的類型
+```CSharp
+public static class StringExtensions
+{
+    public static int GetWordCount(this string s) => s.Split().Length;
+}
+```
 
-## Object
+擴展方法是靜態的，須使用標準的實例方法語法，在 `Main()` 方法中嘗試調用上述擴展方法，直接使用變數
+```CSharp
+string str = "Hello World";
+int wordCount = str.GetWordCount();
+Console.WriteLine(wordCount);
+```
+
+編譯時 Compiler 會把它改為調用靜態方法
+```CSharp
+int wordCount = StringExtensions.GetWordCount(str);
+```
